@@ -52,6 +52,7 @@ public class ShotActivity extends AppCompatActivity {
             Glide.with(this)
                     .load(imageUrl)
                     .asGif()
+                    .placeholder(R.drawable.progress_animation)
                     .into(shotImageView);
         }
         else {
