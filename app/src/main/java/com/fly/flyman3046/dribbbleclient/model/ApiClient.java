@@ -6,6 +6,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
 
@@ -30,5 +31,7 @@ public class ApiClient {
         @GET("shots?")
         Observable<List<Shot>> getShots(@Query("access_token") String apiKey);
 
+        @GET("shots/{shootId}/comments?")
+        Observable<List<Comment>> getCommentsByShotId(@Path("shootId") Integer shotId, @Query("access_token") String apiKey);
     }
 }

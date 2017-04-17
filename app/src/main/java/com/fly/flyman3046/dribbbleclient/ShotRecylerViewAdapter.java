@@ -2,11 +2,7 @@ package com.fly.flyman3046.dribbbleclient;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +21,6 @@ public class ShotRecylerViewAdapter extends RecyclerView.Adapter<ShotRecylerView
     private final static String TAG = ShotRecylerViewHolders.class.getSimpleName();
     private List<Shot> mShotsList;
     private Context mContext;
-    private final static String TRANSIT_NAME = "imageAnimation";
     public final static String IMAGE_URL = "image_url";
     public final static String SHOT_ID = "shot_id";
 
@@ -55,16 +50,7 @@ public class ShotRecylerViewAdapter extends RecyclerView.Adapter<ShotRecylerView
         holder.shotTitle.setText(obj.getTitle());
         holder.shotAuthor.setText(user.getName());
 
-
-
         String imageURL = getImageUrl(obj);
-
-//        if (imageURL.endsWith(".gif")) {
-//            Glide.with(mContext)
-//                    .load(imageURL)
-//                    .asGif()
-//                    .into(holder.shotImageView);
-//        }
 
         Picasso.with(mContext)
             .load(imageURL)
@@ -120,20 +106,11 @@ public class ShotRecylerViewAdapter extends RecyclerView.Adapter<ShotRecylerView
 
         @Override
         public void onClick(View view) {
-
             Intent intent = new Intent(mContext, ShotActivity.class);
             intent.putExtra(IMAGE_URL, getImageUrl(mShotsList.get(getPosition())));
             intent.putExtra(SHOT_ID, mShotsList.get(getPosition()).getId());
 
-            // Check if we're running on Android 5.0 or higher
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                ActivityOptionsCompat options = ActivityOptionsCompat.
-                        makeSceneTransitionAnimation((MainActivity) mContext, shotImageView, TRANSIT_NAME);
-                mContext.startActivity(intent, options.toBundle());
-            }
-            else {
-                mContext.startActivity(intent);
-            }
+            mContext.startActivity(intent);
         }
     }
 }
