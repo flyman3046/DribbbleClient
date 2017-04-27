@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.fly.flyman3046.dribbbleclient.model.ApiClient;
 import com.fly.flyman3046.dribbbleclient.model.Comment;
-import com.fly.flyman3046.dribbbleclient.model.Shot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,8 +44,8 @@ public class ShotActivity extends AppCompatActivity {
         ImageView shotImageView = (ImageView) findViewById(R.id.appbar_backdrop);
 //        ImageView
 
-        String imageUrl = getIntent().getStringExtra(ShotRecylerViewAdapter.IMAGE_URL);
-        Integer shotId = getIntent().getIntExtra(ShotRecylerViewAdapter.SHOT_ID, 0);
+        String imageUrl = getIntent().getStringExtra(MainActivityRecylerViewAdapter.IMAGE_URL);
+        Integer shotId = getIntent().getIntExtra(MainActivityRecylerViewAdapter.SHOT_ID, 0);
 
         if (imageUrl.endsWith(".gif")) {
             Glide.with(this)

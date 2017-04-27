@@ -17,29 +17,29 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ShotRecylerViewAdapter extends RecyclerView.Adapter<ShotRecylerViewAdapter.ShotRecylerViewHolders> {
-    private final static String TAG = ShotRecylerViewHolders.class.getSimpleName();
+public class MainActivityRecylerViewAdapter extends RecyclerView.Adapter<MainActivityRecylerViewAdapter.MainActivityRecylerViewAdapterHolder> {
+    private final static String TAG = MainActivityRecylerViewAdapter.class.getSimpleName();
     private List<Shot> mShotsList;
     private Context mContext;
     public final static String IMAGE_URL = "image_url";
     public final static String SHOT_ID = "shot_id";
 
-    public ShotRecylerViewAdapter(Context context, List<Shot> myDataset) {
+    public MainActivityRecylerViewAdapter(Context context, List<Shot> myDataset) {
         mContext = context;
         mShotsList = myDataset;
     }
 
     @Override
-    public ShotRecylerViewHolders onCreateViewHolder(ViewGroup parent,
+    public MainActivityRecylerViewAdapterHolder onCreateViewHolder(ViewGroup parent,
                                                  int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.shot_card_view, parent, false);
 
-        return new ShotRecylerViewHolders(v);
+        return new MainActivityRecylerViewAdapterHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(ShotRecylerViewHolders holder, int position) {
+    public void onBindViewHolder(MainActivityRecylerViewAdapterHolder holder, int position) {
         final Shot obj = mShotsList.get(position);
 
         User user = obj.getUser();
@@ -80,7 +80,7 @@ public class ShotRecylerViewAdapter extends RecyclerView.Adapter<ShotRecylerView
         return imageURL;
     }
 
-    public class ShotRecylerViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class MainActivityRecylerViewAdapterHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public CircleImageView selfieImageView;
         public TextView shotTitle;
         public TextView shotAuthor;
@@ -90,7 +90,7 @@ public class ShotRecylerViewAdapter extends RecyclerView.Adapter<ShotRecylerView
         public TextView viewCntTextView;
         public View card;
 
-        public ShotRecylerViewHolders(View itemView) {
+        public MainActivityRecylerViewAdapterHolder(View itemView) {
             super(itemView);
             card = itemView;
 

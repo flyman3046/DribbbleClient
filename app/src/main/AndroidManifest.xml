@@ -23,6 +23,11 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
         </activity>
+
+        <activity android:name=".DribbbleLoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
