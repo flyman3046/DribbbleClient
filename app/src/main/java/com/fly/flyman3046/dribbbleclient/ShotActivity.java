@@ -111,12 +111,4 @@ public class ShotActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
-
-
-
-
-
-
 }
